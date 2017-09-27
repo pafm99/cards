@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>here</h3>
+    <a href="/cards/new">Add Cards</a>
+    <h3>Your Cards: </h3>
+    {%for card in curr_user.cards.all%}
+        <p>{{card.name}}</p>
+    {%endfor%}
+
+
+    <h3>Other Cards: </h3>
+    {%for card in allcards%}
+        {%if card not in curr_user.cards.all%}
+            <p>{{card.name}}    |  <a href="/cards/add/{{card.id}}">Add Card</a></p>
+        {%endif%}
+    {%endfor%}
+
+</body>
+</html>
